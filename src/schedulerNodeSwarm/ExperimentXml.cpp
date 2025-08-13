@@ -116,7 +116,6 @@ bool ParsePlugin(const T& plugin, const std::string& strDatabaseHome, std::map<s
     }
     if (!Plugins.LoadPlugin(Plugin::Agent, strLink, mapAgentLink2Cnt[strLink], std::move(mapParameter)))
     {
-        printf("load failed, %s\n", strLink.c_str());
         return false;
     }
     printf("load success, %s\n", strLink.c_str());
@@ -176,7 +175,6 @@ bool ParseSensor(const T& sensor, const std::string& strDatabaseHome, std::map<s
     }
     if (!Plugins.LoadPlugin(Plugin::Sensor, strLink, mapSensorLink2Cnt[strLink], std::move(mapParameter)))
     {
-        printf("load failed, %s\n", strLink.c_str());
         return false;
     }
     printf("load success, %s\n", strLink.c_str());
