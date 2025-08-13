@@ -1,0 +1,12 @@
+/VisualStudio2019/.vs
+/VisualStudio2019/obj
+/lib
+/bin
+/src/libFunction/LibFunction.aps
+/src/libFunction/LibFunction.vcxproj.user
+/src/Sample/Sample.aps
+/src/Sample/Sample.vcxproj.user
+/src/SampleEx/SampleEx.aps
+/src/SampleEx/SampleEx.vcxproj.user
+/src/schedulerNodeSwarm/schedulerNodeSwarm.aps
+/src/schedulerNodeSwarm/SchedulerNodeSwarm.vcxproj.user

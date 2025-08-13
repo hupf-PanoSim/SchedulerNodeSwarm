@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{c3e31f2f-60b2-408d-b7cb-cd4a9a3da470}</ProjectGuid>
+    <RootNamespace>SchedulerNodeSwarm</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)..\bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(Platform)\$(ProjectName)-$(Configuration)\</IntDir>
+    <TargetName>SchedulerNode</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)..\bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(Platform)\$(ProjectName)-$(Configuration)\</IntDir>
+    <TargetName>SchedulerNode</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;WIN32_LEAN_AND_MEAN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>$(BOOST_ROOT);../../include/panoSwarmApi;../../include/schedulerNodeSwarm;$(CPP_THIRD_PARTY)/fast-cpp-csv-parser;$(CPP_THIRD_PARTY)/eigen-3.3.9;$(CPP_THIRD_PARTY)/python36/include;$(CPP_THIRD_PARTY)/pybind11_2.6.2/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(BOOST_ROOT)/stage/lib;$(CPP_THIRD_PARTY)/python36/libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;WIN32_LEAN_AND_MEAN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>$(BOOST_ROOT);../../include/panoSwarmApi;../../include/schedulerNodeSwarm;$(CPP_THIRD_PARTY)/fast-cpp-csv-parser;$(CPP_THIRD_PARTY)/eigen-3.3.9;$(CPP_THIRD_PARTY)/python36/include;$(CPP_THIRD_PARTY)/pybind11_2.6.2/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(BOOST_ROOT)/stage/lib;$(CPP_THIRD_PARTY)/python36/libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="AbstractImport.cpp" />
+    <ClCompile Include="CsvFiles.cpp" />
+    <ClCompile Include="ExperimentXml.cpp" />
+    <ClCompile Include="FileMapping.cpp" />
+    <ClCompile Include="ImportCppDll.cpp" />
+    <ClCompile Include="ImportPython.cpp" />
+    <ClCompile Include="ImportSimulinkDll.cpp" />
+    <ClCompile Include="Interface.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="PluginCtrl.cpp" />
+    <ClCompile Include="RuntimeSettings.cpp" />
+    <ClCompile Include="SchedulerNode.cpp" />
+    <ClCompile Include="Utility.cpp" />
+    <ClCompile Include="EquipmentXml.cpp" />
+    <ClCompile Include="WorldXml.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\schedulerNodeSwarm\AbstractImport.h" />
+    <ClInclude Include="..\..\include\schedulerNodeSwarm\CommonDef.h" />
+    <ClInclude Include="..\..\include\schedulerNodeSwarm\CsvFiles.h" />
+    <ClInclude Include="..\..\include\schedulerNodeSwarm\ExperimentXml.h" />
+    <ClInclude Include="..\..\include\schedulerNodeSwarm\FileMapping.h" />
+    <ClInclude Include="..\..\include\schedulerNodeSwarm\ImportCppDll.h" />
+    <ClInclude Include="..\..\include\schedulerNodeSwarm\ImportPython.h" />
+    <ClInclude Include="..\..\include\schedulerNodeSwarm\ImportSimulinkDll.h" />
+    <ClInclude Include="..\..\include\schedulerNodeSwarm\PluginCtrl.h" />
+    <ClInclude Include="..\..\include\schedulerNodeSwarm\PointerDef.h" />
+    <ClInclude Include="..\..\include\schedulerNodeSwarm\RuntimeSettings.h" />
+    <ClInclude Include="..\..\include\schedulerNodeSwarm\SchedulerNode.h" />
+    <ClInclude Include="..\..\include\schedulerNodeSwarm\SingletonDef.h" />
+    <ClInclude Include="..\..\include\schedulerNodeSwarm\Utility.h" />
+    <ClInclude Include="..\..\include\schedulerNodeSwarm\EquipmentXml.h" />
+    <ClInclude Include="..\..\include\schedulerNodeSwarm\WorldXml.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="schedulerNodeSwarm.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
