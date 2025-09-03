@@ -11,4 +11,5 @@ namespace Utility {
     std::string wstr2str(const std::wstring& wstrSrc) noexcept;
 
     bool GetDatabaseHome(std::string& strPanoSwarmDatabaseHome) noexcept;
+    bool GetEnvResource(std::string& strPanoSimDatabaseHome) noexcept;
 } // namespace Utility

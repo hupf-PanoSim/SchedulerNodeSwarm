@@ -30,7 +30,7 @@ bool Utility::GetPythonLocation(const std::string& strCurrentPath, std::string& 
 {
     strPythonLocation.clear();
 #ifdef _DEBUG
-    strPythonLocation = "D:\\PanoSwarm\\Release\\py36";
+    strPythonLocation = "D:\\PanoSwarm\\git\\Release\\py36";
 #else
     boost::dll::fs::path parentPath(strCurrentPath);
     if (!parentPath.has_parent_path())
@@ -84,6 +84,31 @@ bool Utility::GetDatabaseHome(std::string& strPanoSimDatabaseHome) noexcept
     }
     strPanoSimDatabaseHome = resultVar->to_string();
     if (!boost::filesystem::exists(boost::filesystem::path(strPanoSimDatabaseHome)))
+    {
+        return false;
+    }
+    return true;
+}
+
+
+bool Utility::GetEnvResource(std::string& strEnvResource) noexcept
+{
+    constexpr char const* ENVIRONMENT_KEY = "PanoSwarmResource";
+
+    strEnvResource.clear();
+    const boost::process::environment& environmentVars = boost::this_process::environment();
+    const auto resultVar = std::find_if(
+        environmentVars.cbegin(), environmentVars.cend(),
+        [&](auto item) -> bool {
+            return boost::algorithm::iequals(ENVIRONMENT_KEY, item.get_name());
+        }
+    );
+    if (resultVar == environmentVars.cend())
+    {
+        return false;
+    }
+    strEnvResource = resultVar->to_string();
+    if (!boost::filesystem::exists(boost::filesystem::path(strEnvResource)))
     {
         return false;
     }

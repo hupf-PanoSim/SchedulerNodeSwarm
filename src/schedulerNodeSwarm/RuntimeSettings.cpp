@@ -8,7 +8,7 @@
 #include <CsvFiles.h>
 
 
-static const char* const EquipmentCsvFileRelativePath = "Resource/Equipment/official.csv";
+static const char* const EquipmentCsvFileRelativePath = "Equipment/official.csv";
 //static const char* const PedestrianCsvFileRelativePath = "Resource/Traffic/Pedestrian/official.csv";
 //static const char* const OtherCsvFileRelativePath = "Resource/Traffic/Other/official.csv";
 //static const char* const ObstacleCsvFileRelativePath = "Resource/Static/Obstacle/official.csv";
@@ -86,18 +86,21 @@ bool CRuntimeSettings::Generate(const std::string& strExperimentName)
         return false;
     }
 
+    std::string strEnvResource;
+    if (!Utility::GetEnvResource(strEnvResource))
     {
-        // Equipment--official.csv
-        boost::filesystem::path equipmentCsv(m_strPanoSwarmDatabaseHome);
-        equipmentCsv /= EquipmentCsvFileRelativePath;
-        if (!boost::filesystem::exists(equipmentCsv))
-        {
-            return false;
-        }
-        if (!CsvFileCtrl.ParseEquipmentCsv(equipmentCsv.string()))
-        {
-            return false;
-        }
+        return false;
+    }
+    // Equipment--official.csv
+    boost::filesystem::path equipmentCsv(strEnvResource);
+    equipmentCsv /= EquipmentCsvFileRelativePath;
+    if (!boost::filesystem::exists(equipmentCsv))
+    {
+        return false;
+    }
+    if (!CsvFileCtrl.ParseEquipmentCsv(equipmentCsv.string()))
+    {
+        return false;
     }
 
     //{
